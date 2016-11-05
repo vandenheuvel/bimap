@@ -31,8 +31,17 @@ class BiMap:
 
     def add_value(self, value, key):
         """Add a new (value, key) pair."""
-        self.key_to_value[key] = value
-        self.value_to_key[value] = key
+        self.add_key(key, value)
+
+    def update_by_key(self, dictionary):
+        """Add multiple (key, value) pairs. Overwrites collisions."""
+        for key, value in dictionary.items():
+            self.add_key(key, value)
+
+    def update_by_value(self, dictionary):
+        """Add multiple (value, key) pairs. Overwrites collisions."""
+        for value, key in dictionary.items():
+            self.add_key(key, value)
 
     def get_key(self, key):
         """Get the value from a key."""
@@ -49,8 +58,7 @@ class BiMap:
 
     def remove_value(self, value):
         """Remove a pair by it's value."""
-        del self.key_to_value[self.value_to_key[value]]
-        del self.value_to_key[value]
+        self.remove_key(self.get_value(value))
 
     def clear(self):
         """Remove all pairs."""
