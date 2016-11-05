@@ -1,3 +1,4 @@
+[![Build Status](https://api.travis-ci.org/vandenheuvel/bimap.svg?branch=master)](https://travis-ci.org/vandenheuvel/bimap)
 # Bidirectional Hashmap
 
 This is a simple implementation of the bidirectional hashmap ADT.
